@@ -46,6 +46,3 @@ describe("Given a pushMethod function", () => {
 
         expect(output).toReturn(expectedOutput);
       });
-    });
-  });
-});
