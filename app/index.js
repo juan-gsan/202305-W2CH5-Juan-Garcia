@@ -8,3 +8,13 @@ export const lengthMethod = (elements) => {
 };
 
 export const pushMethod = (...elements) => elements;
+export const findMethod = (elements, testedElement) => {
+  testedElement = 5;
+  for (let element = 0; element < elements.length; element++) {
+    if (elements[element] === testedElement) {
+      return true;
+    }
+  }
+
+  return false;
+};
