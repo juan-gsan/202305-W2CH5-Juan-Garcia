@@ -6,6 +6,17 @@ const lengthMethodFunction = (elements) => {
   return element;
 };
 
-// console.log(lengthMethodFunction([1,2,3]))
 
-export default lengthMethodFunction;
+
+const push = (array, pushedElement) => {
+  const newArray = [];
+  for (let i = 0; i < length(array); i++) {
+    newArray[i] = array[i];
+  }
+
+  newArray[length(array)] = pushedElement;
+
+  return length(newArray);
+};
+
+export default { lengthMethodFunction, push };
