@@ -6,5 +6,3 @@ export const lengthMethodFunction = (elements) => {
 
   return sum;
 };
-
-lengthMethodFunction([1, 2, 3]);
