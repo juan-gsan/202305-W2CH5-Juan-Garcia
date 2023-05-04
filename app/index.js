@@ -1,22 +1,10 @@
-const lengthMethodFunction = (elements) => {
-  let element = 0;
-  for (element in elements) {
-    element++;
-  }
-  return element;
-};
-
-
-
-const push = (array, pushedElement) => {
-  const newArray = [];
-  for (let i = 0; i < length(array); i++) {
-    newArray[i] = array[i];
+export const lengthMethod = (elements) => {
+  let sum = 0;
+  for (let element = 0; element < elements.length; element++) {
+    sum += 1;
   }
 
-  newArray[length(array)] = pushedElement;
-
-  return length(newArray);
+  return sum;
 };
 
-export default { lengthMethodFunction, push };
+export const pushMethod = (...elements) => elements;
