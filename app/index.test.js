@@ -1,4 +1,4 @@
-import { lengthMethod, pushMethod } from "./index";
+import { lengthMethod, pushMethod, findMethod } from "./index";
 
 describe("Given a lenghtMehod function", () => {
   describe("When it receives [1, 2, 3 ,4]", () => {
@@ -28,11 +28,11 @@ describe("Given a pushMethod function", () => {
   describe("When it receives 'casa'", () => {
     test("Then it should return ['casa']", () => {
       const testedElements = "casa";
-      const expectedOutput = ["casa"];
+      const expectedOutput = "casa";
 
       const output = pushMethod(testedElements);
 
-      expect(output).toReturn(expectedOutput);
+      expect(output).toContain(expectedOutput);
     });
   });
 
@@ -40,9 +40,37 @@ describe("Given a pushMethod function", () => {
     describe("When it receives 5", () => {
       test("Then it should return [ 1, 2, 3, 4, 5]", () => {
         const testedElements = 5;
-        const expectedOutput = [5];
+        const expectedOutput = 5;
 
         const output = pushMethod(testedElements);
 
-        expect(output).toReturn(expectedOutput);
+        expect(output).toContain(expectedOutput);
       });
+    });
+  });
+});
+
+describe("Given a findMethod function", () => {
+  describe("When it receives [1,2,3,4,5]", () => {
+    test("Then it should return true", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const expectedOutput = true;
+
+      const output = findMethod(testedElements);
+
+      expect(output).toStrictEqual(expectedOutput);
+    });
+  });
+
+  describe("When it receives ['casa', 'gato', 'perro']", () => {
+    test("Then it should return true", () => {
+      const testedElements = ["casa", "gato", "perro"];
+      const testedElement = "libro";
+      const expectedOutput = false;
+
+      const output = findMethod(testedElements, testedElement);
+
+      expect(output).toStrictEqual(expectedOutput);
+    });
+  });
+});
