@@ -1,18 +1,19 @@
 export const lengthMethod = (elements) => {
-  let sum = 0;
+  let length = 0;
   for (let element = 0; element < elements.length; element++) {
-    sum += 1;
+    length += 1;
   }
 
-  return sum;
+  return length;
 };
 
-export const pushMethod = (testedElement, ...elements) => {
+export const pushMethod = (elements) => {
+  let length = 0;
   for (let element = 0; element < elements.length; element++) {
-    elements = elements[element] + "," + testedElement;
+    length += 1;
   }
 
-  return elements;
+  return length + 1;
 };
 
 export const findMethod = (elements, testedElement) => {
