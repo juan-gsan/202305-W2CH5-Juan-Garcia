@@ -26,5 +26,3 @@ export const findMethod = (elements, testedElement) => {
 
   return false;
 };
-
-export const mapMethod = (elements) => elements;
