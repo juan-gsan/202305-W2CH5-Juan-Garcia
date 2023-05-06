@@ -1,4 +1,9 @@
-import { lengthMethod, pushMethod, findMethod, mapMethod } from "./index";
+import {
+  lengthMethod,
+  pushMethod,
+  popMethod,
+  findMethod,
+} from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
   describe("When it receives [1, 2, 3 ,4]", () => {
@@ -39,15 +44,37 @@ describe("Given a pushMethod function", () => {
   describe("When it receives 5", () => {
     test("Then it should return 6", () => {
       const testedElements = [1, 2, 3, 4, 5];
-      const expectedOutput = 5;
+      const expectedOutput = 6;
 
       const output = pushMethod(testedElements);
 
-      expect(output).toContain(expectedOutput);
+      expect(output).toBe(expectedOutput);
     });
   });
 });
 
+describe("Given a popMethod function", () => {
+  describe("When it receives ['Messi', 'Batistuta', 'Maradona']", () => {
+    test("Then it should return 'Maradona'", () => {
+      const testedElement = ["Messi", "Batistuta", "Maradona"];
+      const expectedOutput = "Maradona";
+
+      const output = popMethod(testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+  describe("When it receives []", () => {
+    test("Then it should return undefined", () => {
+      const testedElement = [];
+      const expectedOutput = undefined;
+
+      const output = popMethod(testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
 describe("Given a findMethod function", () => {
   describe("When it receives [1,2,3,4,5]", () => {
     test("Then it should return true", () => {
@@ -67,30 +94,6 @@ describe("Given a findMethod function", () => {
       const expectedOutput = false;
 
       const output = findMethod(testedElements, testedElement);
-
-      expect(output).toStrictEqual(expectedOutput);
-    });
-  });
-});
-
-describe("Given a mapMethod function", () => {
-  describe("When it receives ['casa', 'patata', 'gato']", () => {
-    test("Then it should return ['casa', 'patata', 'gato']", () => {
-      const testedElements = ["casa", "patata", "gato"];
-      const expectedOutput = ["casa", "patata", "gato"];
-
-      const output = mapMethod(testedElements);
-
-      expect(output).toStrictEqual(expectedOutput);
-    });
-  });
-
-  describe("When it receives [1,2,3,4,5]", () => {
-    test("Then it should return [1,2,3,4,5]", () => {
-      const testedElements = [1, 2, 3, 4, 5];
-      const expectedOutput = [1, 2, 3, 4, 5];
-
-      const output = mapMethod(testedElements);
 
       expect(output).toStrictEqual(expectedOutput);
     });
