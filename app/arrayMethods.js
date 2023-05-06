@@ -7,9 +7,9 @@ export const lengthMethod = (elements) => {
   return length;
 };
 
-export const pushMethod = (elements, newElement) => {
-  const newElements = [...elements, newElement];
-  return newElements.length;
+export const pushMethod = (elements, ...newElement) => {
+  elements = [...elements, ...newElement];
+  return elements.length;
 };
 
 export const popMethod = (elements) => {
@@ -22,9 +22,9 @@ export const popMethod = (elements) => {
   return lastElement;
 };
 
-export const unshiftMethod = (elements, newElement) => {
-  const newElements = [newElement, ...elements];
-  return newElements.length;
+export const unshiftMethod = (elements, ...newElement) => {
+  elements = [...newElement, ...elements];
+  return elements.length;
 };
 
 export const shiftMethod = (elements) => {
@@ -37,17 +37,24 @@ export const shiftMethod = (elements) => {
     elements[index - 1] = elements[index];
   }
 
-  elements.pop();
+  popMethod(elements);
   return firstElement;
 };
 
-export const findMethod = (elements, testedElement) => {
-  testedElement = 5;
-  for (let element = 0; element < elements.length; element++) {
-    if (elements[element] === testedElement) {
+export const someMethod = (elements, callbackFunction) => {
+  for (let index = 0; index < elements.length; index++) {
+    if (elements[index] === callbackFunction) {
       return true;
     }
   }
 
   return false;
+};
+
+export const findMethod = (elements, callbackFunction) => {
+  for (let index = 0; index < elements.length; index++) {
+    if (elements[index] === callbackFunction) {
+      return elements[index];
+    }
+  }
 };
