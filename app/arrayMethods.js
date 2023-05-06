@@ -171,12 +171,12 @@ export const reduceMethod = (elements, callbackFunction, initialValue) => {
 
   let sum = 0;
 
-  for (let i = initialValue; i < elements.length; i++) {
-    if (typeof elements[i] === "number") {
+  for (let item = initialValue; item < elements.length; item++) {
+    if (typeof elements[item] === "number") {
       sum = 0;
     }
 
-    if (typeof elements[i] !== "number") {
+    if (typeof elements[item] !== "number") {
       sum = "";
     }
   }
@@ -189,11 +189,24 @@ export const reduceMethod = (elements, callbackFunction, initialValue) => {
   return sum;
 };
 
-// Export const joinMethod = (elements, separator) => {
-//   let newElements = "";
-//   for (let index = 0; index < elements.length; index++) {
-//     newElements += elements[index] + separator;
-//   }
+export const joinMethod = (elements, separator) => {
+  let sum = "";
+  if (separator) {
+    let lastElement;
+    for (let index = 0; index < elements.length - 1; index++) {
+      const element = elements[index] + separator;
+      lastElement = elements[elements.length - 1];
+      sum += element;
+    }
 
-//   return newElements;
-// };
+    sum += lastElement;
+    return sum;
+  }
+
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    sum += element;
+  }
+
+  return sum;
+};

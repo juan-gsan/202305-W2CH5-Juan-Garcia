@@ -13,6 +13,7 @@ import {
   includesMethod,
   indexOfMethod,
   reduceMethod,
+  joinMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -458,6 +459,31 @@ describe("Given a reduceMethod function", () => {
         callbackFunction,
         startingIndex
       );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a joinMethod function", () => {
+  describe("When it receives [1,2,3,4,5]", () => {
+    test("Then it should return '12345'", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const expectedOutput = "12345";
+
+      const output = joinMethod(testedElements);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5] and a dot as separator", () => {
+    test("Then it should return '1.2.3.4.5", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const separator = ".";
+      const expectedOutput = "1.2.3.4.5";
+
+      const output = joinMethod(testedElements, separator);
 
       expect(output).toBe(expectedOutput);
     });
