@@ -8,6 +8,7 @@ import {
   findMethod,
   everyMethod,
   filterMethod,
+  mapMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -243,6 +244,32 @@ describe("Given a filterMethod function", () => {
       const expectedOutput = [3, 12, 25, 33];
 
       const output = filterMethod(testedElements, callbackFunction);
+
+      expect(output).toStrictEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a mapMethod function", () => {
+  describe("When it receives [1,2,3,4,5] and a callback function to multiply each number by 10", () => {
+    test.only("Then it should return [1,4,9,16,25]", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const callbackFunction = (item) => item * 10;
+      const expectedOutput = [10, 20, 30, 40, 50];
+
+      const output = mapMethod(testedElements, callbackFunction);
+
+      expect(output).toStrictEqual(expectedOutput);
+    });
+  });
+
+  describe("When it receives [-3,6,-12,54,-8] and a callback function to switch sign", () => {
+    test.only("Then it should return [3,-6,12,-54,8]", () => {
+      const testedElements = [-3, 6, -12, 54, -8];
+      const callbackFunction = (item) => item - item * 2;
+      const expectedOutput = [3, -6, 12, -54, 8];
+
+      const output = mapMethod(testedElements, callbackFunction);
 
       expect(output).toStrictEqual(expectedOutput);
     });

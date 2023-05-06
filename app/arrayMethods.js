@@ -93,3 +93,13 @@ export const filterMethod = (elements, callbackFunction) => {
 
   return newElements;
 };
+
+export const mapMethod = (elements, callbackFunction) => {
+  const newElements = [];
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    pushMethod(newElements, callbackFunction(element));
+  }
+
+  return newElements;
+};
