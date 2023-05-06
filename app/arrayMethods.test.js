@@ -10,6 +10,7 @@ import {
   filterMethod,
   mapMethod,
   findIndexMethod,
+  includesMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -297,6 +298,71 @@ describe("Given a findIndexMethod function", () => {
       const expectedOutput = 3;
 
       const output = findIndexMethod(testedElements, callbackFunction);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a includesMethod function", () => {
+  describe("When it receives [1,2,3,4,5], 3", () => {
+    test.only("Then it should return true", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 3;
+      const expectedOutput = true;
+
+      const output = includesMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], 1, 3", () => {
+    test("Then it should return false", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 1;
+      const startingIndex = 3;
+      const expectedOutput = false;
+
+      const output = includesMethod(
+        testedElements,
+        testedElement,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], 1, 8", () => {
+    test.only("Then it should return false", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 1;
+      const startingIndex = 8;
+      const expectedOutput = false;
+
+      const output = includesMethod(
+        testedElements,
+        testedElement,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], 3, -2", () => {
+    test.only("Then it should return false", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 3;
+      const startingIndex = -2;
+      const expectedOutput = true;
+
+      const output = includesMethod(
+        testedElements,
+        testedElement,
+        startingIndex
+      );
 
       expect(output).toBe(expectedOutput);
     });
