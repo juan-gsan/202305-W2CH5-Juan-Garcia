@@ -103,3 +103,63 @@ export const mapMethod = (elements, callbackFunction) => {
 
   return newElements;
 };
+
+export const findIndexMethod = (elements, callbackFunction) => {
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    const elementIndex = index;
+    if (callbackFunction(element)) {
+      return elementIndex;
+    }
+  }
+
+  return -1;
+};
+
+export const includesMethod = (elements, element, fromIndex) => {
+  if (fromIndex >= elements.length) {
+    return false;
+  }
+
+  if (!fromIndex || fromIndex < -elements.length) {
+    fromIndex = 0;
+  }
+
+  if (fromIndex < 0) {
+    fromIndex = 0;
+  }
+
+  for (let index = fromIndex; index < elements.length; index++) {
+    if (elements[index] === element) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+export const indexOfMethod = (elements, element, fromIndex) => {
+  if (fromIndex >= elements.length) {
+    return -1;
+  }
+
+  if (!fromIndex || fromIndex < -elements.length) {
+    fromIndex = 0;
+  }
+
+  if (fromIndex < 0) {
+    fromIndex = 0;
+  }
+
+  if (Number.isNaN(element)) {
+    return -1;
+  }
+
+  for (let index = fromIndex; index < elements.length; index++) {
+    if (elements[index] === element) {
+      return index;
+    }
+  }
+
+  return -1;
+};
