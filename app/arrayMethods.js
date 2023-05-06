@@ -8,7 +8,12 @@ export const lengthMethod = (elements) => {
 };
 
 export const pushMethod = (elements, ...newElement) => {
-  elements = [...elements, ...newElement];
+  const newElements = [...newElement];
+
+  for (let index = 0; index < newElements.length; index++) {
+    elements[elements.length] = newElements[index];
+  }
+
   return elements.length;
 };
 
@@ -23,7 +28,12 @@ export const popMethod = (elements) => {
 };
 
 export const unshiftMethod = (elements, ...newElement) => {
-  elements = [...newElement, ...elements];
+  const newElements = [...newElement, ...elements];
+  elements.length = 0;
+  for (let index = 0; index < newElements.length; index++) {
+    elements[elements.length] = newElements[index];
+  }
+
   return elements.length;
 };
 
@@ -43,7 +53,8 @@ export const shiftMethod = (elements) => {
 
 export const someMethod = (elements, callbackFunction) => {
   for (let index = 0; index < elements.length; index++) {
-    if (elements[index] === callbackFunction) {
+    const element = elements[index];
+    if (callbackFunction(element)) {
       return true;
     }
   }
@@ -53,8 +64,32 @@ export const someMethod = (elements, callbackFunction) => {
 
 export const findMethod = (elements, callbackFunction) => {
   for (let index = 0; index < elements.length; index++) {
-    if (elements[index] === callbackFunction) {
-      return elements[index];
+    const element = elements[index];
+    if (callbackFunction(element)) {
+      return element;
     }
   }
+};
+
+export const everyMethod = (elements, callbackFunction) => {
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    if (!callbackFunction(element)) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+export const filterMethod = (elements, callbackFunction) => {
+  const newElements = [];
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    if (callbackFunction(element)) {
+      pushMethod(newElements, element);
+    }
+  }
+
+  return newElements;
 };
