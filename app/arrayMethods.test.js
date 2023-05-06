@@ -181,4 +181,16 @@ describe("Given a findMethod function", () => {
       expect(output).toBe(expectedOutput);
     });
   });
+
+  describe("When it receives [1,2,3,4,5,6] and a callback function that looks for even numbers", () => {
+    test("Then it should return 2", () => {
+      const testedElements = [1, 2, 3, 4, 5, 6];
+      const testedElement = (item) => !(item % 2);
+      const expectedOutput = 2;
+
+      const output = findMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
 });

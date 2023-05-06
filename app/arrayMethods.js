@@ -41,9 +41,9 @@ export const shiftMethod = (elements) => {
   return firstElement;
 };
 
-export const someMethod = (elements, element) => {
+export const someMethod = (elements, callbackFunction) => {
   for (let index = 0; index < elements.length; index++) {
-    if (elements[index] === element) {
+    if (elements[index] === callbackFunction) {
       return true;
     }
   }
@@ -51,14 +51,10 @@ export const someMethod = (elements, element) => {
   return false;
 };
 
-export const findMethod = (elements, element) => {
+export const findMethod = (elements, callbackFunction) => {
   for (let index = 0; index < elements.length; index++) {
-    if (!element) {
-      return undefined;
-    }
-
-    if (elements[index] === element) {
-      return element;
+    if (elements[index] === callbackFunction) {
+      return elements[index];
     }
   }
 };
