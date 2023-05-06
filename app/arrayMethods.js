@@ -103,3 +103,15 @@ export const mapMethod = (elements, callbackFunction) => {
 
   return newElements;
 };
+
+export const findIndexMethod = (elements, callbackFunction) => {
+  for (let index = 0; index < elements.length; index++) {
+    const element = elements[index];
+    const elementIndex = index;
+    if (callbackFunction(element)) {
+      return elementIndex;
+    }
+  }
+
+  return -1;
+};
