@@ -12,6 +12,8 @@ import {
   findIndexMethod,
   includesMethod,
   indexOfMethod,
+  reduceMethod,
+  joinMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -424,6 +426,64 @@ describe("Given a indexOfMethod function", () => {
         testedElement,
         startingIndex
       );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a reduceMethod function", () => {
+  describe("When it receives [1,2,3,4,5] and a callback function that accumulates the values", () => {
+    test("Then it should return 15", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const callbackFunction = (accumulator, newValue) =>
+        accumulator + newValue;
+      const expectedOutput = 15;
+
+      const output = reduceMethod(testedElements, callbackFunction);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives ['mano', 'brazo', 'pierna', 'cabeza'] an starting index 1 and a callback function that accumulates the values", () => {
+    test("Then it should return 'brazopiernacabeza'", () => {
+      const testedElements = ["mano", "brazo", "pierna", "cabeza"];
+      const callbackFunction = (accumulator, newValue) =>
+        accumulator + newValue;
+      const startingIndex = 1;
+      const expectedOutput = "brazopiernacabeza";
+
+      const output = reduceMethod(
+        testedElements,
+        callbackFunction,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a joinMethod function", () => {
+  describe("When it receives [1,2,3,4,5]", () => {
+    test("Then it should return '12345'", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const expectedOutput = "12345";
+
+      const output = joinMethod(testedElements);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5] and a dot as separator", () => {
+    test("Then it should return '1.2.3.4.5", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const separator = ".";
+      const expectedOutput = "1.2.3.4.5";
+
+      const output = joinMethod(testedElements, separator);
 
       expect(output).toBe(expectedOutput);
     });
