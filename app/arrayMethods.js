@@ -7,6 +7,8 @@ export const lengthMethod = (elements) => {
   return length;
 };
 
+export const popMethod = (elements) => elements[elements.length - 1];
+
 export const pushMethod = (elements) => {
   let length = 0;
   for (let element = 0; element < elements.length; element++) {
