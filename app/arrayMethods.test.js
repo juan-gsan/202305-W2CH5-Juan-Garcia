@@ -4,6 +4,7 @@ import {
   popMethod,
   unshiftMethod,
   shiftMethod,
+  someMethod,
   findMethod,
 } from "./arrayMethods";
 
@@ -130,27 +131,54 @@ describe("Given a shiftMethod function", () => {
   });
 });
 
-describe("Given a findMethod function", () => {
-  describe("When it receives [1,2,3,4,5]", () => {
+describe("Given a someMethod function", () => {
+  describe("When it receives [1,2,3,4,5] and 5", () => {
     test("Then it should return true", () => {
       const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 5;
       const expectedOutput = true;
 
-      const output = findMethod(testedElements);
+      const output = someMethod(testedElements, testedElement);
 
-      expect(output).toStrictEqual(expectedOutput);
+      expect(output).toBe(expectedOutput);
     });
   });
 
-  describe("When it receives ['casa', 'gato', 'perro']", () => {
-    test("Then it should return true", () => {
+  describe("When it receives ['casa', 'gato', 'perro'] and 'libro'", () => {
+    test("Then it should return false", () => {
       const testedElements = ["casa", "gato", "perro"];
       const testedElement = "libro";
       const expectedOutput = false;
 
+      const output = someMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a findMethod function", () => {
+  describe("When it receives [1,2,3,4] and 2", () => {
+    test("Then it should return 2", () => {
+      const testedElements = [1, 2, 3, 2];
+      const testedElement = 2;
+      const expectedOutput = 2;
+
       const output = findMethod(testedElements, testedElement);
 
-      expect(output).toStrictEqual(expectedOutput);
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4] and 5", () => {
+    test("Then it should return undefined", () => {
+      const testedElements = [1, 2, 3, 4];
+      const testedElement = 5;
+      const expectedOutput = undefined;
+
+      const output = findMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
     });
   });
 });
