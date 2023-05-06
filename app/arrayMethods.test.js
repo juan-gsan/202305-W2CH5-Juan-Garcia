@@ -3,6 +3,7 @@ import {
   pushMethod,
   popMethod,
   unshiftMethod,
+  shiftMethod,
   findMethod,
 } from "./arrayMethods";
 
@@ -68,7 +69,7 @@ describe("Given a popMethod function", () => {
     });
   });
   describe("When it receives []", () => {
-    test.only("Then it should return undefined", () => {
+    test("Then it should return undefined", () => {
       const testedElement = [];
       const expectedOutput = undefined;
 
@@ -99,6 +100,30 @@ describe("Given a unshiftMethod function", () => {
       const expectedOutput = 1;
 
       const output = unshiftMethod(testedElement, newElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a shiftMethod function", () => {
+  describe("When it receives [1,2,3,4]", () => {
+    test("Then it should return 3", () => {
+      const testedElement = [1, 2, 3, 4];
+      const expectedOutput = 1;
+
+      const output = shiftMethod(testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives []", () => {
+    test("Then it should return undefined", () => {
+      const testedElement = [];
+      const expectedOutput = undefined;
+
+      const output = shiftMethod(testedElement);
 
       expect(output).toBe(expectedOutput);
     });

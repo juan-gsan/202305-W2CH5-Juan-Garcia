@@ -28,7 +28,17 @@ export const unshiftMethod = (elements, newElement) => {
 };
 
 export const shiftMethod = (elements) => {
+  if (elements.length === 0) {
+    return undefined;
+  }
+
   const firstElement = elements[0];
+  for (let index = 0; index < elements.length; index++) {
+    elements[index - 1] = elements[index];
+  }
+
+  elements.pop();
+  return firstElement;
 };
 
 export const findMethod = (elements, testedElement) => {
