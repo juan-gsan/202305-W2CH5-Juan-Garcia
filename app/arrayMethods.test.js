@@ -12,6 +12,7 @@ import {
   findIndexMethod,
   includesMethod,
   indexOfMethod,
+  reduceMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -422,6 +423,39 @@ describe("Given a indexOfMethod function", () => {
       const output = indexOfMethod(
         testedElements,
         testedElement,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a reduceMethod function", () => {
+  describe("When it receives [1,2,3,4,5] and a callback function that accumulates the values", () => {
+    test("Then it should return 15", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const callbackFunction = (accumulator, newValue) =>
+        accumulator + newValue;
+      const expectedOutput = 15;
+
+      const output = reduceMethod(testedElements, callbackFunction);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives ['mano', 'brazo', 'pierna', 'cabeza'] an starting index 1 and a callback function that accumulates the values", () => {
+    test("Then it should return 'brazopiernacabeza'", () => {
+      const testedElements = ["mano", "brazo", "pierna", "cabeza"];
+      const callbackFunction = (accumulator, newValue) =>
+        accumulator + newValue;
+      const startingIndex = 1;
+      const expectedOutput = "brazopiernacabeza";
+
+      const output = reduceMethod(
+        testedElements,
+        callbackFunction,
         startingIndex
       );
 

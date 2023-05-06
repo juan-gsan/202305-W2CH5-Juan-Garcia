@@ -163,3 +163,37 @@ export const indexOfMethod = (elements, element, fromIndex) => {
 
   return -1;
 };
+
+export const reduceMethod = (elements, callbackFunction, initialValue) => {
+  if (!initialValue) {
+    initialValue = 0;
+  }
+
+  let sum = 0;
+
+  for (let i = initialValue; i < elements.length; i++) {
+    if (typeof elements[i] === "number") {
+      sum = 0;
+    }
+
+    if (typeof elements[i] !== "number") {
+      sum = "";
+    }
+  }
+
+  for (let index = initialValue; index < elements.length; index++) {
+    const element = elements[index];
+    sum = callbackFunction(sum, element);
+  }
+
+  return sum;
+};
+
+// Export const joinMethod = (elements, separator) => {
+//   let newElements = "";
+//   for (let index = 0; index < elements.length; index++) {
+//     newElements += elements[index] + separator;
+//   }
+
+//   return newElements;
+// };
