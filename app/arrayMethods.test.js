@@ -11,6 +11,7 @@ import {
   mapMethod,
   findIndexMethod,
   includesMethod,
+  indexOfMethod,
 } from "./arrayMethods";
 
 describe("Given a lenghtMehod function", () => {
@@ -306,7 +307,7 @@ describe("Given a findIndexMethod function", () => {
 
 describe("Given a includesMethod function", () => {
   describe("When it receives [1,2,3,4,5], 3", () => {
-    test.only("Then it should return true", () => {
+    test("Then it should return true", () => {
       const testedElements = [1, 2, 3, 4, 5];
       const testedElement = 3;
       const expectedOutput = true;
@@ -335,7 +336,7 @@ describe("Given a includesMethod function", () => {
   });
 
   describe("When it receives [1,2,3,4,5], 1, 8", () => {
-    test.only("Then it should return false", () => {
+    test("Then it should return false", () => {
       const testedElements = [1, 2, 3, 4, 5];
       const testedElement = 1;
       const startingIndex = 8;
@@ -352,13 +353,73 @@ describe("Given a includesMethod function", () => {
   });
 
   describe("When it receives [1,2,3,4,5], 3, -2", () => {
-    test.only("Then it should return false", () => {
+    test("Then it should return false", () => {
       const testedElements = [1, 2, 3, 4, 5];
       const testedElement = 3;
       const startingIndex = -2;
       const expectedOutput = true;
 
       const output = includesMethod(
+        testedElements,
+        testedElement,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+});
+
+describe("Given a indexOfMethod function", () => {
+  describe("When it receives [1,2,3,4,5], 2", () => {
+    test("Then it should return 1", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 2;
+      const expectedOutput = 1;
+
+      const output = indexOfMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], 1, 3", () => {
+    test("Then it should return -1", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 1;
+      const startingIndex = 3;
+      const expectedOutput = -1;
+
+      const output = indexOfMethod(
+        testedElements,
+        testedElement,
+        startingIndex
+      );
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], NaN", () => {
+    test("Then it should return -1", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = NaN;
+      const expectedOutput = -1;
+
+      const output = indexOfMethod(testedElements, testedElement);
+
+      expect(output).toBe(expectedOutput);
+    });
+  });
+
+  describe("When it receives [1,2,3,4,5], 1, 2", () => {
+    test("Then it should return -1", () => {
+      const testedElements = [1, 2, 3, 4, 5];
+      const testedElement = 1;
+      const startingIndex = 2;
+      const expectedOutput = -1;
+
+      const output = indexOfMethod(
         testedElements,
         testedElement,
         startingIndex
