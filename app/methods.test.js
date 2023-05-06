@@ -73,7 +73,7 @@ describe("Given a findMethod function", () => {
   });
 });
 
-// describe("Given a mapMethod function", () => {
+// Describe("Given a mapMethod function", () => {
 //   describe("When it receives ['casa', 'patata', 'gato']", () => {
 //     test("Then it should return ['casa', 'patata', 'gato']", () => {
 //       const testedElements = ["casa", "patata", "gato"];
