@@ -6,11 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./images/coconut-gb7a036890_640.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lobster&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
   <title>Array Methods</title>
 </head>
 
 <body>
+  <header>
+    <h1>ARRAY METHODS FOR DUMMIES</h1>
+  </header>
+  <main>
+    <section class="array">
+      <h2>Given an array: </h2>
+      <p>[ 1 , 2 , 3 , 4 , 5]</p>
+    </section>
+    <section class="function">
+      <h2>When we pass pop method to the array: </h2>
+      <p>const popMethod = (elements) => {</p>
+      <p> if (elements.length === 0) {</p>
+      <p> return undefined;</p>
+      <p> }</p>
 
+      <p> const lastElement = elements[elements.length - 1];</p>
+      <p> elements.length -= 1;</p>
+      <p>return lastElement;</p>
+      <p>};</p>
+    </section>
+    <button class="evaluate">EVALUATE</button>
+    <section class="result">
+      <h2>Then it returns: </h2>
+      <p>[5]</p>
+    </section>
+  </main>
+  <script src="./app/popMethod.js"></script>
 </body>
 
 </html>
