@@ -1,8 +1,13 @@
 import { reduceMethod } from "./arrayMethods";
 
-const givenArray = document.querySelector(".input").textContent;
-const result = reduceMethod(givenArray);
-document.querySelector(".evaluate").addEventListener("click", (event) => {
-  event.preventDefault();
-  document.querySelector(".solution").textContent(result);
-});
+const solveReduce = () => {
+  document.querySelector(".evaluate").addEventListener("click", (event) => {
+    event.preventDefault();
+    const givenArray = document.querySelector(".input").value;
+    reduceMethod(givenArray);
+    const solution = document.querySelector(".solution").textContent;
+    return solution;
+  });
+};
+
+solveReduce();
