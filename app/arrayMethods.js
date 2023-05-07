@@ -9,7 +9,6 @@ export const lengthMethod = (elements) => {
 
 export const pushMethod = (elements, ...newElement) => {
   const newElements = [...newElement];
-
   for (let index = 0; index < newElements.length; index++) {
     elements[elements.length] = newElements[index];
   }

@@ -1,13 +1,14 @@
-import { reduceMethod } from "./arrayMethods";
+import { pushMethod } from "./arrayMethods.js";
 
-const solveReduce = () => {
+const solvePush = () => {
   document.querySelector(".evaluate").addEventListener("click", (event) => {
     event.preventDefault();
     const givenArray = document.querySelector(".input").value;
-    reduceMethod(givenArray);
+    const elementsToAdd = document.querySelector(".input-to-add").value;
+    pushMethod(givenArray, elementsToAdd);
     const solution = document.querySelector(".solution").textContent;
     return solution;
   });
 };
 
-solveReduce();
+solvePush();

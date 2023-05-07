@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lobster&family=Roboto:wght@400;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <title>Array Methods</title>
 </head>
 
@@ -23,33 +24,18 @@
       <h2>Given an array: </h2>
       <form>
         <label for="array">
-          Array:
-          <input class="input" type="text" placeholder="e.g.: [1,2,3,4,5]">
+          <p>
+            Insert array values separated by comma:
+          </p>
+          <input class="input" type="text" placeholder="e.g.: 1,2,3,4,5" value="">
         </label>
-        <div class="function">
-          <h2>When we pass reduce method to the array: </h2>
-          <p>const reduceMethod = (elements, callbackFunction, initialValue) => {</p>
-          <p> if (!initialValue) {</p>
-          <p> initialValue = 0;</p>
-          <p> }</p>
-
-          <p> let sum = 0;</p>
-
-          <p> for (let item = initialValue; item < elements.length; item++) { </p>
-              <p> if (typeof elements[item]==="number" ) { </p>
-              <p> sum=0; </p>
-              <p> } </p>
-              <p> if (typeof elements[item] !=="number" ) { </p>
-              <p> sum="" ; </p>
-              <p> } </p>
-              <p>} </p>
-              <p> for (let index=initialValue; index < elements.length; index++) {</p>
-                  <p> const element=elements[index]; </p>
-                  <p> sum=callbackFunction(sum, element); </p>
-                  <p> } </p>
-                  <p> return sum; </p>
-                  <p>};</p>
-        </div>
+        <label for="elements-to-add">
+          <p>
+            Insert elements to add:
+          </p>
+          <input class="input-to-add" type="text" placeholder="e.g.: 6,7,8" value="">
+        </label>
+        <h2>When we pass push method to the array: </h2>
         <h2>Click button to evaluate function: </h2>
         <button class="evaluate" type="submit">EVALUATE</button>
       </form>
@@ -58,7 +44,7 @@
       <h2 class="solution"></h2>
     </section>
   </main>
-  <script src="./app/reduceMethod.js" type="module"></script>
+  <script src="./app/pushMethod.js" type="module"></script>
 </body>
 
 </html>
