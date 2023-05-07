@@ -16,32 +16,50 @@
 
 <body>
   <header>
-    <h1>ARRAY METHODS FOR DUMMIES</h1>
+    <h1>ARRAY METHODS</h1>
   </header>
   <main>
     <section class="array">
       <h2>Given an array: </h2>
-      <p>[ 1 , 2 , 3 , 4 , 5]</p>
-    </section>
-    <section class="function">
-      <h2>When we pass pop method to the array: </h2>
-      <p>const popMethod = (elements) => {</p>
-      <p> if (elements.length === 0) {</p>
-      <p> return undefined;</p>
-      <p> }</p>
+      <form>
+        <label for="array">
+          Array:
+          <input class="input" type="text" placeholder="e.g.: [1,2,3,4,5]">
+        </label>
+        <div class="function">
+          <h2>When we pass reduce method to the array: </h2>
+          <p>const reduceMethod = (elements, callbackFunction, initialValue) => {</p>
+          <p> if (!initialValue) {</p>
+          <p> initialValue = 0;</p>
+          <p> }</p>
 
-      <p> const lastElement = elements[elements.length - 1];</p>
-      <p> elements.length -= 1;</p>
-      <p>return lastElement;</p>
-      <p>};</p>
+          <p> let sum = 0;</p>
+
+          <p> for (let item = initialValue; item < elements.length; item++) { </p>
+              <p> if (typeof elements[item]==="number" ) { </p>
+              <p> sum=0; </p>
+              <p> } </p>
+              <p> if (typeof elements[item] !=="number" ) { </p>
+              <p> sum="" ; </p>
+              <p> } </p>
+              <p>} </p>
+              <p> for (let index=initialValue; index < elements.length; index++) {</p>
+                  <p> const element=elements[index]; </p>
+                  <p> sum=callbackFunction(sum, element); </p>
+                  <p> } </p>
+                  <p> return sum; </p>
+                  <p>};</p>
+        </div>
+        <h2>Click button to evaluate function: </h2>
+        <button class="evaluate" type="submit">EVALUATE</button>
+      </form>
     </section>
-    <button class="evaluate">EVALUATE</button>
     <section class="result">
       <h2>Then it returns: </h2>
-      <p>[5]</p>
+      <p class="solution"></p>
     </section>
   </main>
-  <script src="./app/popMethod.js"></script>
+  <script type="module" src="./app/reduceMethod.js"></script>
 </body>
 
 </html>
